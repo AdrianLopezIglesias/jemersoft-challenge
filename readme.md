@@ -23,7 +23,4 @@ PostMan collection: https://app.getpostman.com/run-collection/16526102-a0677dac-
 
 
 # Testing
-At 2021-10-24 15:48, the following routes need to be tested: 
-	get('/cart/calculate_total')
-	get('/cart/checkout')
-	
+All basics are tested (1 coffee, 2 coffees and 3 coffees)
