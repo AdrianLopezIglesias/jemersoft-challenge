@@ -1,0 +1,6 @@
+sequelize-cli model:generate --name Product --attributes name:string,value:integer,tax:integer
+sequelize-cli model:generate --name ComboProduct --attributes product_id:integer,combo_id:integer,discount:integer
+sequelize-cli model:generate --name Combo --attributes name:string,limit:integer,priority:integer
+sequelize-cli model:generate --name Cart --attributes product_id:integer,closed:integer,discount_used:string 
+
+sequelize seed:generate --name seed-database
