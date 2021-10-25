@@ -1,11 +1,23 @@
+# Design
+UI and front-end hasn't been developed.
+The UI would work the following way: 
+ - Load the available products from "/products".
+ - Load the current products in the cart from "/cart/remaining".
+ - Add a new item to the cart by posting its UI to "/cart/add".
+ - Get the current total every time a new product is added by loading "/cart/calculate_total".
+ - Close the operation by accesing to "/cart/checkout". 
+
+# Development
+The current repository was developed in two days of work by Adrian Lopez Iglesias. 
+
 # Deploying
 set database config "config/config.js" with your own credentials
 then run: 
-npm i
+```npm i
 sequelize db:migrate  
 sequelize db:seed:all
 npm run test (all should pass)
-npm run dev 
+npm run dev ``` 
 
 # Routes
 get('/products/'): List all available products in stock.
@@ -23,4 +35,6 @@ PostMan collection: https://app.getpostman.com/run-collection/16526102-a0677dac-
 
 
 # Testing
-All basics are tested (1 coffee, 2 coffees and 3 coffees)
+All basics case scenarios are tested (1 coffee, 2 coffees and 3 coffees)
+But an extensive testing for multiple combinations is still pending. 
+
