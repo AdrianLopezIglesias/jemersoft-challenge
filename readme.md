@@ -9,6 +9,7 @@ The UI would work the following way:
 
 # Development
 The current repository was developed in two days of work by Adrian Lopez Iglesias. 
+![Calculating new price mind map](https://raw.githubusercontent.com/AdrianLopezIglesias/a_day_in_the_coffee_shop/main/Add_to_cart%20design.jpg)
 
 # Deploying
 set database config "config/config.js" with your own credentials
