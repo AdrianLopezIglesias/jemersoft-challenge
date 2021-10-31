@@ -1,25 +1,41 @@
+//START
 const express = require('express')
 const app = express()
+
+//GENERAL PORPOUSE
 const logger = require('morgan')
 const bodyParser = require('body-parser')
-
-const http = require('http')
-// app.use(logger('dev'))
+app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
-
 require('dotenv').config()
-const productController = require('./controllers/product')
-const cartController = require('./controllers/cart')
-const comboController = require('./controllers/combo')
 
-app.get('/products/', productController.index)
-app.get('/combos/', comboController.index)
-app.get('/cart/all', cartController.index)
-app.post('/cart/add', cartController.add)
-app.post('/cart/close', cartController.close)
-app.get('/cart/remaining', cartController.remaining)
-app.get('/cart/calculate_total', cartController.calculate_total)
-app.get('/cart/checkout', cartController.checkout)
+//SWAGGER
+options = require("./docs/basicInfo")
+const swaggerJsdoc = require("swagger-jsdoc")
+const swaggerUi = require("swagger-ui-express")
+const specs = swaggerJsdoc(options);
+app.use(
+	"/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: false })
+	);
+	
+//ROUTES
+const routes = require('./routes/api')
+app.use('/api', routes);
+app.get('/', (req, res) => res.render('home'))
 
+//VIEWS
+const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+let pug = require("pug")
+let path = require('path')
+app.set(path.join(__dirname, './views'))
+app.set('view engine', 'pug')
+
+app.use(express.static(__dirname + '/public'));
+
+
+//EXPORT
 module.exports = app; 

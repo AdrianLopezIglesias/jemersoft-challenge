@@ -15,8 +15,9 @@ The current repository was developed in two days of work by Adrian Lopez Iglesia
 set database config "config/config.js" with your own credentials
 then run: 
 ```npm i
-sequelize db:migrate  
-sequelize db:seed:all
+npm i -g sequelize
+npx sequelize db:migrate  
+npx sequelize db:seed:all
 npm run test (all should pass)
 npm run dev ``` 
 
