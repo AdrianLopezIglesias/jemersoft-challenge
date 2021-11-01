@@ -25,6 +25,8 @@ app.use(
 const routes = require('./routes/api')
 app.use('/api', routes);
 app.get('/', (req, res) => res.render('home'))
+app.get('/pokemon/*', (req, res) => res.render('home'))
+
 
 //VIEWS
 const webpack = require('webpack');
@@ -33,7 +35,6 @@ let pug = require("pug")
 let path = require('path')
 app.set(path.join(__dirname, './views'))
 app.set('view engine', 'pug')
-
 app.use(express.static(__dirname + '/public'));
 
 

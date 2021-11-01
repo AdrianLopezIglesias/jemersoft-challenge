@@ -8,7 +8,7 @@ class Pokemon {
 		this.type = data.type
 		this.weight = data.weight
 		this.abilities = data.abilities
-		this.photo = data.photo
+		this.photo = data.sprites.front_default
 		this.description_url = 'https://pokeapi.co/api/v2/pokemon-species/' + data.id
 	}
 

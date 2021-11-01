@@ -1,14 +1,31 @@
 import Vue from "vue";
-const Home = require('./Home2.vue')
-let app = new Vue({
-    el: '#home',
-    data: {
-    },
-    methods: {
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Pokedex from './Pokedex.vue'
+import App from './App.vue'
+import VueRouter from 'vue-router';
+import routes from './routes';
+Vue.config.productionTip = false;
 
-	},
+Vue.use(VueRouter);
 
-	mounted() {
-			console.log("hola5")
-    }
-})
+const router = new VueRouter({ mode: 'history', routes });
+
+new Vue({
+  render: h => h(App),
+  router
+}).$mount('#home');
+
+// let app = new Vue({
+//     el: '#home',
+//     data: {
+//     },
+//     methods: {
+
+// 	},
+// 	components: {
+// 			'home': Pokedex
+// 		},
+// 	mounted() {
+//     }
+// })

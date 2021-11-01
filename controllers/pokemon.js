@@ -5,7 +5,7 @@ module.exports = {
 
 	//====================INDEX METHOD====================
 	index(req, res) {
-		limit = req.query.limit ? req.query.limit : 2
+		limit = req.query.limit ? req.query.limit : 10
 		offset = req.query.offset ? req.query.offset : 0
 
 		let url = 'https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset
